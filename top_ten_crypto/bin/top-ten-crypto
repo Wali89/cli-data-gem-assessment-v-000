@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "Top Ten Cryptocurrencies"
+require './lib/top_ten_crypto'
 
-
-here
+TopTenCrypto::CLI.new.call
