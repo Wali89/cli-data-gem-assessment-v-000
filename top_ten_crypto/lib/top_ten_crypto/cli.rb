@@ -10,6 +10,18 @@ class TopTenCrypto::CLI
   def list_crypto
     puts "The Top Ten Cryptocurrencies:"
     @cryptos = TopTenCrypto::Best.today
+    puts <<-DOC.gsub /^\s*/, ''
+    1. BTC
+    2. ETH
+    3. XRP
+    4. BCC
+    5. ADA
+    6. LTC
+    7. NEO
+    8. XLM
+    9. EOS
+    10. NEM
+    DOC
   end
 
   def menu
