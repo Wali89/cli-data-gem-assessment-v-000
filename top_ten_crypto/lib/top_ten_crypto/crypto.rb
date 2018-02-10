@@ -2,14 +2,6 @@ class TopTenCrypto::Best
   attr_accessor :name, :price, :url, :change
 
   def self.today
-    puts <<-DOC.gsub /^\s*/, ''
-    1. #{coin_1.name} - #{coin_1.price}
-    2. #{coin_2.name} - #{coin_2.price}
-    3. #{coin_3.name} - #{coin_3.price}
-    4. #{coin_4.name} - #{coin_4.price}
-    5. #{coin_5.name} - #{coin_5.price}
-    DOC
-
     coin_1 = self.new
     coin_1.name = "Bitcoin"
     coin_1.price = "$8,460.00"
@@ -41,6 +33,7 @@ class TopTenCrypto::Best
     coin_5.url = "coinmarketcap.com"
 
     [coin_1, coin_2, coin_3, coin_4, coin_5]
+
   end
 
 end

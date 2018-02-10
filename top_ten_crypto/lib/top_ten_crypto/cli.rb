@@ -1,7 +1,6 @@
 class TopTenCrypto::CLI
 
   def call
-    puts "The Top Ten Cryptocurrencies:"
     list_crypto
     menu
   end
@@ -9,11 +8,16 @@ class TopTenCrypto::CLI
   def list_crypto
     puts "The Top Ten Cryptocurrencies:"
     @cryptos = TopTenCrypto::Best.today
-    @cryptos.each.with_index(1) do |crypto, i|
+    @cryptos.each_with_index { |crypto, i| puts "#{i+1}. #{crypto.name}" }
+  end
+
+  def goodbye
+    puts "Thank you for using this application!"
   end
 
   def menu
     input = nil
+
     while input != "exit"
       puts "Please enter the list number of the cryptocurrency for more information, or exit to quit application:"
       input = gets.strip.downcase
@@ -31,7 +35,7 @@ class TopTenCrypto::CLI
       end
     end
   end
-end
+
 
   def goodbye
     puts "Thank you for using this application!"
