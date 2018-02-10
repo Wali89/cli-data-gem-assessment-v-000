@@ -4,61 +4,36 @@ class TopTenCrypto::CLI
     puts "The Top Ten Cryptocurrencies:"
     list_crypto
     menu
-    goodbye
   end
 
   def list_crypto
     puts "The Top Ten Cryptocurrencies:"
     @cryptos = TopTenCrypto::Best.today
-    puts <<-DOC.gsub /^\s*/, ''
-    1. BTC
-    2. ETH
-    3. XRP
-    4. BCC
-    5. ADA
-    6. LTC
-    7. NEO
-    8. XLM
-    9. EOS
-    10. NEM
-    DOC
+    @cryptos.each.with_index(1) do |crypto, i|
   end
 
   def menu
-    puts "Enter the number of the cryptocurrency for more information:"
     input = nil
     while input != "exit"
+      puts "Please enter the list number of the cryptocurrency for more information, or exit to quit application:"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "More info on crypto 1..."
-      when "2"
-        puts "More info on crypto 2..."
-      when "3"
-        puts "More info on crypto 3..."
-      when "4"
-        puts "More info on crypto 4..."
-      when "5"
-        puts "More info on crypto 5..."
-      when "6"
-        puts "More info on crypto 6..."
-      when "7"
-        puts "More info on crypto 7..."
-      when "8"
-        puts "More info on crypto 8..."
-      when "9"
-        puts "More info on crypto 9..."
-      when "10"
-        puts "More info on crypto 10..."
-      when "list"
+
+      if input.to_i > 0 && input.to_i < 5
+        puts @cryptos[input.to_i-1].name
+        puts "Price: #{@cryptos[input.to_i-1].price}"
+        puts @cryptos[input.to_i-1].url
+      elsif input == "list"
         list_crypto
+      elsif input.to_i > 5
+        puts "Invalid input."
       else
-        puts "Command not recognized please type numbers 1 - 10, list, exit"
+        goodbye
       end
     end
   end
+end
 
   def goodbye
-    puts "See you later!"
+    puts "Thank you for using this application!"
   end
 end
