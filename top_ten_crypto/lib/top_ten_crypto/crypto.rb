@@ -12,8 +12,8 @@ class TopTenCrypto::Best
 
     coin_bag.each do |info|
       coin = TopTenCrypto::Best.new
-      #data = info.search('td')
-      #does work
+      data = info.search('td').text
+      coinfo = data.split("\n").delete("")
       coin.name = info.css("a.currency-name-container").text
       coin.price = info.css("a.price").text
 
