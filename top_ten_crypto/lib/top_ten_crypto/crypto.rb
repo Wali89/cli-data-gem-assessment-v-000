@@ -1,6 +1,6 @@
 class TopTenCrypto::Best
-  attr_accessor :name, :price, :url, :change,
-  @@all
+  attr_accessor :name, :price, :url, :change
+  @@all = []
 
   def self.scrape_chart
     doc = Nokogiri::HTML(open("https://coinmarketcap.com/"))
@@ -12,13 +12,13 @@ class TopTenCrypto::Best
 
     coin_bag.each do |info|
       coin = TopTenCrypto::Best.new
+      #data = info.search('td')
       #does work
       coin.name = info.css("a.currency-name-container").text
-      #does NOT work
-      coin.url = "#{info.span('href')}"
       coin.price = info.css("a.price").text
-      binding.pry
+
       @@all << coin
+      binding.pry
     end
 
   end
