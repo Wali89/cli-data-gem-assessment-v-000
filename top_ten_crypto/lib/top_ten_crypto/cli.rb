@@ -49,8 +49,8 @@ class TopTenCrypto::CLI
         puts "Change over 7 Days #{crypto[input.to_i-1].c_week}"
       elsif input == "list"
         list_crypto
-      elsif input.to_i >= 6
-        puts "Invalid input."
+      elsif input.to_i >= 10
+        puts "Invalid input. Type list to view top ten cryptocurrencies, or exit to quit"
       end
     end
 
