@@ -44,9 +44,9 @@ class TopTenCrypto::CLI
         puts "Price USD: $#{crypto[input.to_i-1].p_usd}"
         puts "Price BTC: #{crypto[input.to_i-1].p_btc}"
         puts "Market Cap: #{crypto[input.to_i-1].market_cap}"
-        puts "24 Hours Trade Volume #{crypto[input.to_i-1].vol}"
-        puts "Change over 24 Hours #{crypto[input.to_i-1].c_day}"
-        puts "Change over 7 Days #{crypto[input.to_i-1].c_week}"
+        puts "24 Hours Trade Volume: #{crypto[input.to_i-1].vol}"
+        puts "Change over 24 Hours: #{crypto[input.to_i-1].c_day}"
+        puts "Change over 7 Days: #{crypto[input.to_i-1].c_week}"
       elsif input == "list"
         list_crypto
       elsif input.to_i >= 10
