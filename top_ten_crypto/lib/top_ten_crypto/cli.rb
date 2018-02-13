@@ -47,9 +47,6 @@ class TopTenCrypto::CLI
         puts "24 Hours Trade Volume #{crypto[input.to_i-1].vol}"
         puts "Change over 24 Hours #{crypto[input.to_i-1].c_day}"
         puts "Change over 7 Days #{crypto[input.to_i-1].c_week}"
-        #puts " #{crypto[input.to_i-1]}"
-        #puts " #{crypto[input.to_i-1]}"
-        #puts " #{crypto[input.to_i-1].}"
       elsif input == "list"
         list_crypto
       elsif input.to_i >= 6

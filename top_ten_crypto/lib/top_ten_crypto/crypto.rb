@@ -9,7 +9,11 @@ class TopTenCrypto::Best
   end
 
   #Scrapes Chart
+<<<<<<< HEAD
   def self.sc
+=======
+  def self.s_c
+>>>>>>> 0bf500e0f04b9e065f87f848279b7756c62f52dd
     doc = Nokogiri::HTML(open("https://www.investing.com/crypto/"))
     chart = doc.search("tbody")
     chart.search("tr").each do |info|
@@ -17,6 +21,7 @@ class TopTenCrypto::Best
     end
   end
 
+<<<<<<< HEAD
   #Makes Coins
   def self.mc
     @@coinbag.shift
@@ -37,15 +42,45 @@ class TopTenCrypto::Best
       coin.rank = counter.to_i
       counter += 1
       @@all << coin
+=======
+  def self.m_c
+    @@coinbag.shift
+    @@coinbag.each do |coin|
+      counter = 1
+      info = coin.split(" ")
+      coin = self.new
+      coin.name = info[0]
+      coin.sn = info[1]
+      coin.p_usd = info[2]
+      coin.market_cap = info[3]
+      coin.vol = info[4]
+      coin.vol_total = info[5]
+      coin.p_btc = info[6]
+      coin.c_day = info[7]
+      coin.c_week = info[8]
+      coin.rank = counter.to_i
+      @@all << coin
+      counter += 1
+      binding.pry
+>>>>>>> 0bf500e0f04b9e065f87f848279b7756c62f52dd
     end
   end
 
   def self.all
     @@all
+<<<<<<< HEAD
   end
 
   def self.bag
     @@coinbag
   end
 
+=======
+  end
+
+  def self.bag
+    @@coinbag
+  end
+
+>>>>>>> 0bf500e0f04b9e065f87f848279b7756c62f52dd
 end
