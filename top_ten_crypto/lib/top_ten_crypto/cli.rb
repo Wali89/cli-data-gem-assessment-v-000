@@ -41,7 +41,7 @@ class TopTenCrypto::CLI
       if input.to_i > 0 && input.to_i <= 10
         puts "Name: #{crypto[input.to_i-1].name}"
         puts "Symbol: #{crypto[input.to_i-1].sn}"
-        puts "Price USD: #{crypto[input.to_i-1].p_usd}"
+        puts "Price USD: $#{crypto[input.to_i-1].p_usd}"
         puts "Price BTC: #{crypto[input.to_i-1].p_btc}"
         puts "Market Cap: #{crypto[input.to_i-1].market_cap}"
         puts "24 Hours Trade Volume #{crypto[input.to_i-1].vol}"
