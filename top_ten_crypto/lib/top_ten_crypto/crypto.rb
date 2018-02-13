@@ -37,25 +37,6 @@ class TopTenCrypto::Best
       coin.rank = counter.to_i
       counter += 1
       @@all << coin
-
-  def self.m_c
-    @@coinbag.shift
-    @@coinbag.each do |coin|
-      counter = 1
-      info = coin.split(" ")
-      coin = self.new
-      coin.name = info[0]
-      coin.sn = info[1]
-      coin.p_usd = info[2]
-      coin.market_cap = info[3]
-      coin.vol = info[4]
-      coin.vol_total = info[5]
-      coin.p_btc = info[6]
-      coin.c_day = info[7]
-      coin.c_week = info[8]
-      coin.rank = counter.to_i
-      @@all << coin
-      counter += 1
     end
   end
 
