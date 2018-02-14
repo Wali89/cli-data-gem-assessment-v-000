@@ -2,7 +2,6 @@ class TopTenCrypto::Best
  attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :p_btc, :c_day, :rank, :c_week
 
  @@all = []
- @@coinbag = []
 
  def initialize
 
@@ -10,19 +9,21 @@ class TopTenCrypto::Best
 
  #Scrapes Chart
  def self.sc
+   coinbag = []
    doc = Nokogiri::HTML(open("https://www.investing.com/crypto/"))
    chart = doc.search("tbody")
    chart.search("tr").each do |info|
-     @@coinbag << info.text
+    coinbag << info.text
    end
+   coinbag
  end
 
 
  #Makes Coins
- def self.mc
-   @@coinbag.shift
+ def self.mc(coinbag)
+   coinbag.shift
    counter = 1
-   @@coinbag.each do |coin|
+   coinbag.each do |coin|
      info = coin.split("\n")
      info.map! { |e| e.strip }
      coin = self.new
@@ -45,13 +46,5 @@ class TopTenCrypto::Best
    @@all
  end
 
- def self.bag
-   @@coinbag
- end
-
- def self.run
-   TopTenCrypto::Best.sc
-   TopTenCrypto::Best.mc
- end
 
 end

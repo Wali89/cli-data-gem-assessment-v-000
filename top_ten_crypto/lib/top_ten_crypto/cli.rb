@@ -9,8 +9,8 @@ class TopTenCrypto::CLI
   end
 
   def list_crypto
-    TopTenCrypto::Best.sc
-    TopTenCrypto::Best.mc
+    new_data = TopTenCrypto::Best.sc
+    TopTenCrypto::Best.mc(new_data)
     list = TopTenCrypto::Best.all
     puts "#{list[0].rank}    #{list[0].name}----$#{list[0].p_usd}"
     puts "#{list[1].rank}    #{list[1].name}----$#{list[1].p_usd}"
@@ -32,7 +32,6 @@ class TopTenCrypto::CLI
     input = nil
 
     while input != "exit"
-      TopTenCrypto::Best.run
       crypto = TopTenCrypto::Best.all
       puts "Please enter the list number of the cryptocurrency for more information, or exit to quit application:"
       input = gets.strip.downcase
