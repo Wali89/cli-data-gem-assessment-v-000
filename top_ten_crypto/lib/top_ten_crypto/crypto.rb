@@ -1,4 +1,3 @@
-
 class TopTenCrypto::Best
  attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :p_btc, :c_day, :rank, :c_week
 
@@ -48,6 +47,11 @@ class TopTenCrypto::Best
 
  def self.bag
    @@coinbag
+ end
+
+ def self.run
+   TopTenCrypto::Best.sc
+   TopTenCrypto::Best.mc
  end
 
 end

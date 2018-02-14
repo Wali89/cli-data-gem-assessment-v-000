@@ -32,8 +32,7 @@ class TopTenCrypto::CLI
     input = nil
 
     while input != "exit"
-      TopTenCrypto::Best.sc
-      TopTenCrypto::Best.mc
+      TopTenCrypto::Best.run
       crypto = TopTenCrypto::Best.all
       puts "Please enter the list number of the cryptocurrency for more information, or exit to quit application:"
       input = gets.strip.downcase
