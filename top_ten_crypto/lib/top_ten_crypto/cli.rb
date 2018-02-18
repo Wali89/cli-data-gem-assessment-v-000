@@ -2,8 +2,8 @@ class TopTenCrypto::CLI
 
 
   def call
-    puts "Welcome "
-    puts "The Top Ten Cryptocurrencies:"
+    puts "Welcome to Top-Ten-Crypto!"
+    puts "The Top Ten Cryptocurrencies today are:"
     list_crypto
     menu
   end
