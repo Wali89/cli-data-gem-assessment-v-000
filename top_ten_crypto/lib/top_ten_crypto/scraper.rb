@@ -12,6 +12,7 @@ class CryptoScraper
       a = info.text
       @rawinfo << a
     end
+    @rawinfo
   end
 
 end

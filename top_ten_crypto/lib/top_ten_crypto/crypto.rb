@@ -1,18 +1,14 @@
 class TopTenCrypto::Best
- attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :p_btc, :c_day, :rank, :c_week
-
- def initialize
-   @all = []
- end
+ attr_accessor
 
  #Makes Coins
- def self.mc(coinbag)
+ def initialize(coinbag)
    coinbag.shift
    counter = 1
    coinbag.each do |coin|
      info = coin.split("\n")
      info.map! { |e| e.strip }
-     coin = self.new
+     coin = Coin.new
      coin.name = info[2].strip
      coin.sn = info[3]
      coin.p_usd = info[4]
