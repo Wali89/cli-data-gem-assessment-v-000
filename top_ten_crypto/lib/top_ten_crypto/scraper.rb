@@ -1,14 +1,26 @@
-class TopTenCrypto::Scraper
+class CryptoScraper
+  attr_accessor :rawinfo, :coinbag, :doc
 
-  #Scrapes Chart
-  def self.sc
-    coinbag = []
-    doc = Nokogiri::HTML(open("https://www.investing.com/crypto/"))
-    chart = doc.search("tbody")
-    chart.search("tr").each do |info|
-     coinbag << info.text
-    end
-    coinbag
+  def initialize(website)
+    @coinbag = []
+    @rawinfo = []
+    @doc = Nokogiri::HTML(open("#{website}"))
+    @list = TopTenCrypto::Best.new
   end
 
+  def scrape
+    s_rawinfo
+  end
+
+
+  def s_rawinfo
+    @doc.search("tr").each do |info|
+      a = info.text
+      @rawinfo << a
+    end
+  end
+
+  def doc
+    @doc
+  end
 end
