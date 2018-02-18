@@ -8,7 +8,7 @@ class TopTenCrypto::Best
  end
 
  #Makes Coins
- def make
+ def mc
    @coinbag.shift
    counter = 1
    @coinbag.each do |coin|
