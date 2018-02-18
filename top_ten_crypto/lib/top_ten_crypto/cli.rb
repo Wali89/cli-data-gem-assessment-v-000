@@ -48,7 +48,7 @@ class TopTenCrypto::CLI
       elsif input == "list"
         list_crypto
       elsif input.to_i >= 10
-        puts "Invalid input. Type list to view top ten cryptocurrencies, or exit to quit"
+        puts "Invalid input. Type list to view top ten cryptocurrencies."
       end
     end
 
