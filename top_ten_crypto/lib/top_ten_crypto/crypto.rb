@@ -1,11 +1,17 @@
 class TopTenCrypto::Best
- attr_accessor
+ attr_accessor :all, :coinbag
+
+
+ def initialize(coinbag)
+   @all = []
+   @coinbag = coinbag
+ end
 
  #Makes Coins
- def initialize(coinbag)
-   coinbag.shift
+ def make
+   @coinbag.shift
    counter = 1
-   coinbag.each do |coin|
+   @coinbag.each do |coin|
      info = coin.split("\n")
      info.map! { |e| e.strip }
      coin = Coin.new
