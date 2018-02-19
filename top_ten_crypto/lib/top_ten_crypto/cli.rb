@@ -2,6 +2,7 @@ class TopTenCrypto::CLI
 
 
   def call
+    wali = Best.new
     puts "Welcome to Top-Ten-Crypto!"
     puts "The Top Ten Cryptocurrencies today are:"
     list_crypto
@@ -9,10 +10,7 @@ class TopTenCrypto::CLI
   end
 
   def list_crypto
-    new_data = CryptoScraper.new("https://www.investing.com/crypto/")
-    top_coins = TopTenCrypto::Best.new(new_data)
-    top_coins.mc
-    list = top_coins.all
+    list = wali.all
     puts "#{list[0].rank}    #{list[0].name}----$#{list[0].p_usd}"
     puts "#{list[1].rank}    #{list[1].name}----$#{list[1].p_usd}"
     puts "#{list[2].rank}    #{list[2].name}----$#{list[2].p_usd}"
@@ -33,7 +31,7 @@ class TopTenCrypto::CLI
     input = nil
 
     while input != "exit"
-      crypto = TopTenCrypto::Best.all
+      crypto = Crypto.all
       puts "Please enter the list number of the cryptocurrency for more information, or exit to quit application:"
       input = gets.strip.downcase
 

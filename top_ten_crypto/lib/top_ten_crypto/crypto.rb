@@ -1,38 +1,14 @@
-class TopTenCrypto::Best
+
+class Best
  attr_accessor :all, :coinbag
 
-
- def initialize(coinbag)
-   @all = []
-   @coinbag = coinbag
- end
-
- #Makes Coins
- def mc
-   @coinbag.shift
-   counter = 1
-   @coinbag.each do |coin|
-     info = coin.split("\n")
-     info.map! { |e| e.strip }
-     coin = Coin.new
-     coin.name = info[2].strip
-     coin.sn = info[3]
-     coin.p_usd = info[4]
-     coin.market_cap = info[5]
-     coin.vol = info[6]
-     coin.vol_total = info[7]
-     coin.p_btc = info[8]
-     coin.c_day = info[9]
-     coin.c_week = info[10]
-     coin.rank = counter.to_i
-     counter += 1
-     @@all << coin
+ def initialize
+   ans = CryptoScraper.new("https://www.investing.com/crypto/")
+   coinbag = ans.scrape.drop(2)
+   coinbag.each do |info|
+     new_coin = Coin.new(info)
+     binding.pry
    end
  end
-
- def self.all
-   @@all
- end
-
 
 end

@@ -1,8 +1,7 @@
 class CryptoScraper
-  attr_accessor :rawinfo, :coinbag, :doc
+  attr_accessor :rawinfo, :doc
 
   def initialize(website)
-    @coinbag = []
     @rawinfo = []
     @doc = Nokogiri::HTML(open("#{website}"))
   end
