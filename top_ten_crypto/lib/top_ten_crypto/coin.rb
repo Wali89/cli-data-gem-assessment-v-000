@@ -1,5 +1,5 @@
 
-class Coin
+class TopTenCrypto::Coin
   attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :p_btc, :c_day, :c_week, :all
   @@all = []
 
@@ -23,11 +23,10 @@ class Coin
   end
 
   def self.create
-    ans = CryptoScraper.new("https://www.investing.com/crypto/")
+    ans = TopTenCrypto::CryptoScraper.new("https://www.investing.com/crypto/")
     coinbag = ans.scrape.drop(2)
     coinbag.each do |info|
       new_coin = self.new(info)
-      binding.pry
     end
   end
 end

@@ -1,4 +1,4 @@
-class CryptoScraper
+class TopTenCrypto::CryptoScraper
   attr_accessor :rawinfo, :doc
 
   def initialize(website)

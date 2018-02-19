@@ -2,7 +2,6 @@ class TopTenCrypto::CLI
 
 
   def call
-    wali = Best.new
     puts "Welcome to Top-Ten-Crypto!"
     puts "The Top Ten Cryptocurrencies today are:"
     list_crypto
@@ -10,16 +9,18 @@ class TopTenCrypto::CLI
   end
 
   def list_crypto
-    puts "#{list[0].rank}    #{list[0].name}----$#{list[0].p_usd}"
-    puts "#{list[1].rank}    #{list[1].name}----$#{list[1].p_usd}"
-    puts "#{list[2].rank}    #{list[2].name}----$#{list[2].p_usd}"
-    puts "#{list[3].rank}    #{list[3].name}----$#{list[3].p_usd}"
-    puts "#{list[4].rank}    #{list[4].name}----$#{list[4].p_usd}"
-    puts "#{list[5].rank}    #{list[5].name}----$#{list[5].p_usd}"
-    puts "#{list[6].rank}    #{list[6].name}----$#{list[6].p_usd}"
-    puts "#{list[7].rank}    #{list[7].name}----$#{list[7].p_usd}"
-    puts "#{list[8].rank}    #{list[8].name}----$#{list[8].p_usd}"
-    puts "#{list[9].rank}   #{list[9].name}----$#{list[9].p_usd}"
+    TopTenCrypto::Coin.create
+    list = TopTenCrypto::Coin.all
+    puts "1    #{list[0].name}----$#{list[0].p_usd}"
+    puts "2    #{list[1].name}----$#{list[1].p_usd}"
+    puts "3    #{list[2].name}----$#{list[2].p_usd}"
+    puts "4    #{list[3].name}----$#{list[3].p_usd}"
+    puts "5    #{list[4].name}----$#{list[4].p_usd}"
+    puts "6    #{list[5].name}----$#{list[5].p_usd}"
+    puts "7    #{list[6].name}----$#{list[6].p_usd}"
+    puts "8    #{list[7].name}----$#{list[7].p_usd}"
+    puts "9    #{list[8].name}----$#{list[8].p_usd}"
+    puts "10   #{list[9].name}----$#{list[9].p_usd}"
   end
 
   def goodbye
@@ -30,7 +31,7 @@ class TopTenCrypto::CLI
     input = nil
 
     while input != "exit"
-      crypto = Crypto.all
+      crypto = TopTenCrypto::Coin.all
       puts "Please enter the list number of the cryptocurrency for more information, or exit to quit application:"
       input = gets.strip.downcase
 
