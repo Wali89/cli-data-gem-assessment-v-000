@@ -10,7 +10,6 @@ class TopTenCrypto::CLI
   end
 
   def list_crypto
-    list = wali.all
     puts "#{list[0].rank}    #{list[0].name}----$#{list[0].p_usd}"
     puts "#{list[1].rank}    #{list[1].name}----$#{list[1].p_usd}"
     puts "#{list[2].rank}    #{list[2].name}----$#{list[2].p_usd}"
