@@ -1,15 +1,3 @@
-
-<<<<<<< HEAD
-class Best
- attr_accessor :all, :coinbag
-
- def initialize
-   ans = CryptoScraper.new("https://www.investing.com/crypto/")
-   coinbag = ans.scrape.drop(2)
-   coinbag.each do |info|
-     new_coin = Coin.new(info)
-     binding.pry
-=======
 class TopTenCrypto::Best
  attr_accessor :all, :coinbag
 
@@ -35,7 +23,6 @@ class TopTenCrypto::Best
      coin.rank = counter.to_i
      counter += 1
      @@all << coin
->>>>>>> 8f541ac2039fb50188c822c18aad25eb0f7ce0e0
    end
  end
 

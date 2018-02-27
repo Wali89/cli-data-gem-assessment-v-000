@@ -11,16 +11,7 @@ class TopTenCrypto::CLI
   def list_crypto
     TopTenCrypto::Coin.create
     list = TopTenCrypto::Coin.all
-    puts "1    #{list[0].name}----$#{list[0].p_usd}"
-    puts "2    #{list[1].name}----$#{list[1].p_usd}"
-    puts "3    #{list[2].name}----$#{list[2].p_usd}"
-    puts "4    #{list[3].name}----$#{list[3].p_usd}"
-    puts "5    #{list[4].name}----$#{list[4].p_usd}"
-    puts "6    #{list[5].name}----$#{list[5].p_usd}"
-    puts "7    #{list[6].name}----$#{list[6].p_usd}"
-    puts "8    #{list[7].name}----$#{list[7].p_usd}"
-    puts "9    #{list[8].name}----$#{list[8].p_usd}"
-    puts "10   #{list[9].name}----$#{list[9].p_usd}"
+    list.each_with_index { |coin, i| puts "#{i+1}   #{coin.name} --- $#{coin.p_usd}"}
   end
 
   def goodbye

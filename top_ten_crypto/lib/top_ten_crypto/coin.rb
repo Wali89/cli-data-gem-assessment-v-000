@@ -16,6 +16,7 @@ class TopTenCrypto::Coin
     @c_day = info[9]
     @c_week = info[10]
     @@all << self
+    self
   end
 
   def self.all
