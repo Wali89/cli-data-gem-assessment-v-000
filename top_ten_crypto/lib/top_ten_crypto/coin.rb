@@ -1,7 +1,7 @@
-
 class TopTenCrypto::Coin
   attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :p_btc, :c_day, :c_week, :all
   @@all = []
+
 
   def initialize(coin)
     info = coin.split("\n")
@@ -23,6 +23,7 @@ class TopTenCrypto::Coin
     @@all
   end
 
+  #When initalized creates scraper data
   def self.create
     ans = TopTenCrypto::CryptoScraper.new("https://www.investing.com/crypto/")
     coinbag = ans.scrape.drop(2)
