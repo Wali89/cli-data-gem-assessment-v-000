@@ -1,5 +1,5 @@
 class TopTenCrypto::Coin
-  attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :p_btc, :c_day, :c_week, :all
+  attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :p_btc, :c_day, :c_week
   @@all = []
 
 
@@ -16,7 +16,6 @@ class TopTenCrypto::Coin
     @c_day = info[9]
     @c_week = info[10]
     @@all << self
-    self
   end
 
   def self.all

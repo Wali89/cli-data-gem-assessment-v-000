@@ -1,6 +1,7 @@
 class TopTenCrypto::CLI
 
   def call
+    TopTenCrypto::Coin.create
     puts "Welcome to Top-Ten-Crypto!"
     puts "The Top Ten Cryptocurrencies today are:"
     list_crypto
@@ -8,7 +9,6 @@ class TopTenCrypto::CLI
   end
 
   def list_crypto
-    TopTenCrypto::Coin.create
     list = TopTenCrypto::Coin.all
     list.each_with_index { |coin, i| puts "#{i+1}   #{coin.name} --- $#{coin.p_usd}"}
   end
