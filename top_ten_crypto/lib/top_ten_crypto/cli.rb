@@ -22,14 +22,13 @@ class TopTenCrypto::CLI
 
     while input != "exit"
       crypto = TopTenCrypto::Coin.all
-      puts "Please enter the list number of the cryptocurrency for more information, or exit to quit application:"
+      puts "Please enter the number of the cryptocurrency for more information, list to view the full list of cryptocurrency again or exit to quit application:"
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= 10
         puts "Name: #{crypto[input.to_i-1].name}"
         puts "Symbol: #{crypto[input.to_i-1].sn}"
         puts "Price USD: $#{crypto[input.to_i-1].p_usd}"
-        puts "Price BTC: #{crypto[input.to_i-1].p_btc}"
         puts "Market Cap: #{crypto[input.to_i-1].market_cap}"
         puts "24 Hours Trade Volume: #{crypto[input.to_i-1].vol}"
         puts "Change over 24 Hours: #{crypto[input.to_i-1].c_day}"

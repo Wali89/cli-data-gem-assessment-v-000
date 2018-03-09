@@ -1,5 +1,5 @@
 class TopTenCrypto::Coin
-  attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :p_btc, :c_day, :c_week
+  attr_accessor :name, :sn, :p_usd, :market_cap, :vol, :vol_total, :c_day, :c_week
   @@all = []
 
 
@@ -12,9 +12,8 @@ class TopTenCrypto::Coin
     @market_cap = info[5]
     @vol = info[6]
     @vol_total = info[7]
-    @p_btc = info[8]
-    @c_day = info[9]
-    @c_week = info[10]
+    @c_day = info[8]
+    @c_week = info[9]
     @@all << self
   end
 
@@ -22,7 +21,7 @@ class TopTenCrypto::Coin
     @@all
   end
 
-  #When initalized creates scraper data
+  #When initalized creates coin scraper data
   def self.create
     ans = TopTenCrypto::CryptoScraper.new("https://www.investing.com/crypto/")
     coinbag = ans.scrape.drop(2)
