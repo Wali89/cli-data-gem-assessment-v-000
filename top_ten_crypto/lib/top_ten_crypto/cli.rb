@@ -19,10 +19,10 @@ class TopTenCrypto::CLI
 
   def menu
     input = nil
+    puts "Please enter the number of the cryptocurrency for more information, or exit to quit application:"
 
     while input != "exit"
       crypto = TopTenCrypto::Coin.all
-      puts "Please enter the number of the cryptocurrency for more information, list to view the full list of cryptocurrency again or exit to quit application:"
       input = gets.strip.downcase
 
       if input.to_i > 0 && input.to_i <= 10
@@ -33,6 +33,7 @@ class TopTenCrypto::CLI
         puts "24 Hours Trade Volume: #{crypto[input.to_i-1].vol}"
         puts "Change over 24 Hours: #{crypto[input.to_i-1].c_day}"
         puts "Change over 7 Days: #{crypto[input.to_i-1].c_week}"
+        puts "Enter another number or list to view all crypto cryptocurrencies, or exit to quite application: "
       elsif input == "list"
         list_crypto
       elsif input.to_i >= 10
@@ -42,7 +43,6 @@ class TopTenCrypto::CLI
 
     goodbye
   end
-
 
   def goodbye
     puts "Thank you for using this application!"

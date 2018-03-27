@@ -21,7 +21,6 @@ class TopTenCrypto::Coin
     @@all
   end
 
-  #When initalized creates coin scraper data
   def self.create
     ans = TopTenCrypto::CryptoScraper.new("https://www.investing.com/crypto/")
     coinbag = ans.scrape.drop(2)
