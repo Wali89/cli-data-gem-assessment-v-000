@@ -4,6 +4,7 @@ class TopTenCrypto::Coin
 
 
   def initialize(coin)
+    binding.pry
     info = coin.split("\n")
     info.map! { |e| e.strip }
     @name = info[2].strip
